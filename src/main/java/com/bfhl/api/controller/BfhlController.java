@@ -28,8 +28,5 @@ public class BfhlController {
         return ResponseEntity.ok(new OperationCodeResponse(1));
     }
 
-    /**
-     * Simple inner record for the GET /health response.
-     */
     private record OperationCodeResponse(int operation_code) {}
 }

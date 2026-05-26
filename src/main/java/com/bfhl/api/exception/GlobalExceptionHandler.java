@@ -17,25 +17,16 @@ public class GlobalExceptionHandler {
     private static final String EMAIL = "harshpatil230509@acropolis.in";
     private static final String ROLL_NUMBER = "0827CS231100";
 
-    /**
-     * Handles validation errors (e.g., missing "data" field).
-     */
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<BfhlResponse> handleValidationException(MethodArgumentNotValidException ex) {
         return ResponseEntity.badRequest().body(buildErrorResponse());
     }
 
-    /**
-     * Handles malformed JSON or unreadable request bodies.
-     */
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<BfhlResponse> handleBadRequest(HttpMessageNotReadableException ex) {
         return ResponseEntity.badRequest().body(buildErrorResponse());
     }
 
-    /**
-     * Catch-all for any other unexpected exceptions.
-     */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<BfhlResponse> handleGenericException(Exception ex) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(buildErrorResponse());

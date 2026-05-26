@@ -56,9 +56,6 @@ public class BfhlServiceImpl implements BfhlService {
                 .build();
     }
 
-    /**
-     * Checks if a string is purely numeric (digits only).
-     */
     private boolean isNumeric(String s) {
         if (s == null || s.isEmpty()) return false;
         for (char c : s.toCharArray()) {
@@ -67,9 +64,6 @@ public class BfhlServiceImpl implements BfhlService {
         return true;
     }
 
-    /**
-     * Checks if a string is purely alphabetic (letters only).
-     */
     private boolean isAlphabetic(String s) {
         if (s == null || s.isEmpty()) return false;
         for (char c : s.toCharArray()) {
@@ -78,12 +72,6 @@ public class BfhlServiceImpl implements BfhlService {
         return true;
     }
 
-    /**
-     * Builds the concat_string:
-     * 1. Collect all individual characters from alphabetic items (in order).
-     * 2. Reverse the concatenated string.
-     * 3. Apply alternating caps (index 0 = uppercase, index 1 = lowercase, …).
-     */
     private String buildConcatString(List<String> data) {
         StringBuilder allChars = new StringBuilder();
         for (String item : data) {
