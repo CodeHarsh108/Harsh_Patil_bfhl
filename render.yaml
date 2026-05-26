@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: bfhl-api
+    env: java
+    plan: free
+    buildCommand: "chmod +x mvnw && ./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/api-0.0.1-SNAPSHOT.jar"
+    envVars:
+      - key: JAVA_VERSION
+        value: 21
+
